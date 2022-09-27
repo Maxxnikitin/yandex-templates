@@ -24,10 +24,17 @@ const createItemNode = (text) => {
   const currentText = currentItem.querySelector(".item__text");
   currentText.textContent = text;
 
+  setListeners(currentItem);
+
+  return currentItem;
+};
+
+const setListeners = (currentItem) => {
   const deleteBtn = currentItem.querySelector(".delete");
   deleteBtn.addEventListener("click", handleDeleteItem);
 
-  return currentItem;
+  const duplicateBtn = currentItem.querySelector(".duplicate");
+  duplicateBtn.addEventListener("click", handleDuplicateItem);
 };
 
 const handleAddItem = () => {
@@ -39,6 +46,14 @@ const handleAddItem = () => {
 const handleDeleteItem = (e) => {
   const currentEl = e.target.closest(".list__item");
   currentEl.remove();
+};
+
+const handleDuplicateItem = (e) => {
+  const currentItem = e.target.closest(".list__item");
+  const text = currentItem.querySelector(".item__text").textContent;
+  const copyItem = createItemNode(text);
+
+  currentItem.after(copyItem);
 };
 
 render();

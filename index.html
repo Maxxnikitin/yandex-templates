@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./index.css" />
+    <script src="script.js" defer></script>
+    <title>Templates</title>
+  </head>
+  <body>
+    <div class="todo">
+      <h1 class="title">Todo List</h1>
+      <form class="form">
+        <input
+          type="text"
+          class="form__input"
+          placeholder="Следующее дело..."
+        />
+        <button type="button" class="form__submit">Добавить</button>
+      </form>
+      <ul class="list">
+        <li class="list__item">
+          <span class="item__text">Сделать проектную работу</span>
+          <img class="edit" src="images/Edit.png" alt="Редактировать" />
+          <img class="duplicate" src="images/Duplicate.png" alt="Копировать" />
+          <img class="delete" src="images/Delete.png" alt="Удалить" />
+        </li>
+        <li class="list__item">
+          <span class="item__text">Полить цветы</span>
+          <img class="edit" src="images/Edit.png" alt="Редактировать" />
+          <img class="duplicate" src="images/Duplicate.png" alt="Копировать" />
+          <img class="delete" src="images/Delete.png" alt="Удалить" />
+        </li>
+        <li class="list__item">
+          <span class="item__text">Пройти туториал по Реакту</span>
+          <img class="edit" src="images/Edit.png" alt="Редактировать" />
+          <img class="duplicate" src="images/Duplicate.png" alt="Копировать" />
+          <img class="delete" src="images/Delete.png" alt="Удалить" />
+        </li>
+      </ul>
+    </div>
+    <footer class="footer">© Yandex.Praktikum 2021</footer>
+  </body>
+</html>

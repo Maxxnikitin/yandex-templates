@@ -24,6 +24,9 @@ const createItemNode = (text) => {
   const currentText = currentItem.querySelector(".item__text");
   currentText.textContent = text;
 
+  const deleteBtn = currentItem.querySelector(".delete");
+  deleteBtn.addEventListener("click", handleDeleteItem);
+
   return currentItem;
 };
 
@@ -31,6 +34,11 @@ const handleAddItem = () => {
   const item = createItemNode(input.value);
   container.prepend(item);
   input.value = "";
+};
+
+const handleDeleteItem = (e) => {
+  const currentEl = e.target.closest(".list__item");
+  currentEl.remove();
 };
 
 render();

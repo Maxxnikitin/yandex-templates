@@ -7,12 +7,16 @@ const items = [
 
 const container = document.querySelector(".list");
 const template = document.querySelector(".template");
+const submitBtn = document.querySelector(".form__submit");
+const input = document.querySelector(".form__input");
 
 const render = () => {
   items.forEach((item) => {
     const currentItem = createItemNode(item.text);
     container.append(currentItem);
   });
+
+  submitBtn.addEventListener("click", handleAddItem);
 };
 
 const createItemNode = (text) => {
@@ -21,6 +25,12 @@ const createItemNode = (text) => {
   currentText.textContent = text;
 
   return currentItem;
+};
+
+const handleAddItem = () => {
+  const item = createItemNode(input.value);
+  container.prepend(item);
+  input.value = "";
 };
 
 render();

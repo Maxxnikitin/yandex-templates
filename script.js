@@ -10,6 +10,8 @@ const template = document.querySelector(".template");
 const submitBtn = document.querySelector(".form__submit");
 const input = document.querySelector(".form__input");
 
+let editableItem = null;
+
 const render = () => {
   items.forEach((item) => {
     const currentItem = createItemNode(item.text);
@@ -35,17 +37,24 @@ const setListeners = (currentItem) => {
 
   const duplicateBtn = currentItem.querySelector(".duplicate");
   duplicateBtn.addEventListener("click", handleDuplicateItem);
+
+  const editBtn = currentItem.querySelector(".edit");
+  editBtn.addEventListener("click", handleEditItem);
 };
 
 const handleAddItem = () => {
+  if (editableItem) {
+    handleConfirmEdit();
+    return;
+  }
   const item = createItemNode(input.value);
   container.prepend(item);
   input.value = "";
 };
 
 const handleDeleteItem = (e) => {
-  const currentEl = e.target.closest(".list__item");
-  currentEl.remove();
+  const currentItem = e.target.closest(".list__item");
+  currentItem.remove();
 };
 
 const handleDuplicateItem = (e) => {
@@ -54,6 +63,21 @@ const handleDuplicateItem = (e) => {
   const copyItem = createItemNode(text);
 
   currentItem.after(copyItem);
+};
+
+const handleEditItem = (e) => {
+  const currentItem = e.target.closest(".list__item");
+  editableItem = currentItem;
+  const text = editableItem.querySelector(".item__text").textContent;
+  input.value = text;
+  submitBtn.textContent = "Обновить";
+};
+
+const handleConfirmEdit = () => {
+  editableItem.querySelector(".item__text").textContent = input.value;
+  input.value = "";
+  editableItem = null;
+  submitBtn.textContent = "Добавить";
 };
 
 render();

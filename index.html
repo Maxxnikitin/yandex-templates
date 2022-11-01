@@ -4,12 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./index.css" />
-    <script src="script.js" defer></script>
+    <script src="./scripts/TodoForm.js" defer></script>
+    <script src="./scripts/TodoItem.js" defer></script>
+    <script src="./scripts/TodoList.js" defer></script>
+    <script src="./scripts/script.js" defer></script>
     <title>Templates</title>
   </head>
   <body>
-    <div class="todo">
+    <div class="todo"></div>
+    <footer class="footer">© Yandex.Praktikum 2021</footer>
+
+    <template class="template-list">
       <h1 class="title">Todo List</h1>
+    </template>
+
+    <template class="template-form">
       <form class="form">
         <input
           type="text"
@@ -18,12 +27,11 @@
         />
         <button type="button" class="form__submit">Добавить</button>
       </form>
-      <ul class="list"></ul>
-    </div>
-    <footer class="footer">© Yandex.Praktikum 2021</footer>
-    <template class="template">
+    </template>
+
+    <template class="template-item">
       <li class="list__item">
-        <span class="item__text">Полить цветы</span>
+        <span class="item__text"></span>
         <img class="edit" src="images/Edit.png" alt="Редактировать" />
         <img class="duplicate" src="images/Duplicate.png" alt="Копировать" />
         <img class="delete" src="images/Delete.png" alt="Удалить" />
